@@ -1,23 +1,21 @@
-import React, { useState } from 'react';
-import { Send, StopCircle } from 'lucide-react';
+import React, { useState } from "react";
+import { Send, StopCircle } from "lucide-react";
 
 interface ChatInputProps {
   onSendMessage: (message: string) => void;
 }
 
 export function ChatInput({ onSendMessage, setIsStoped }: ChatInputProps) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsStoped(false);
     if (message.trim()) {
       onSendMessage(message);
-      setMessage('');
+      setMessage("");
     }
   };
-
-
 
   return (
     <form onSubmit={handleSubmit} className="border-t bg-white p-4">
